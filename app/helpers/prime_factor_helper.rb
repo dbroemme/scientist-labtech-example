@@ -35,11 +35,13 @@ module PrimeFactorHelper
   def improved_largest_prime_factor(n)
     puts "Using the new way"
     largest_factor = 1
-    (2..n).each do |x|
+    x = 2
+    while x <= n
       if ((n % x == 0) && is_prime?(x))
         largest_factor = x
         n = n / x
       end
+      x = x + 1
     end
     largest_factor
   end

@@ -16,6 +16,7 @@ gem 'amazing_print'
 gem 'rails_semantic_logger'
 
 gem 'lab_tech'
+gem 'blazer'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
