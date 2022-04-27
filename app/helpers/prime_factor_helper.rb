@@ -6,43 +6,42 @@ module PrimeFactorHelper
 
   def largest_prime_factor(number)
     LabTech.science "prime-factors" do |experiment|
-      experiment.use { brute_force(number) }           # old way
-      experiment.try { improved_prime_factor(number) } # new way
+      experiment.use { find_largest_prime_factor(number) }     # old way
+      experiment.try { improved_largest_prime_factor(number) } # new way
     end  # returns the control value
   end
 
-  def is_prime?(n)     
-    tests = Array (2..Math.sqrt(n).floor) 
-    tests = tests.select { |x| n % x == 0} 
-    return true if tests.empty?
-    false 
+  def is_prime?(n)
+    possible_factors = Array (2..Math.sqrt(n).floor)
+    possible_factors.each do |x|
+      if n % x == 0
+        return false
+      end
+    end
+    true
   end
 
-  def brute_force(n)
+  def find_largest_prime_factor(n)
     puts "Using the old way"
-    test = 3
-    out = 0
-    while test <= n
-      if ((n % test == 0) && is_prime?(test)) 
-        out = test
+    largest_factor = 1
+    (2..n).each do |x|
+      if ((n % x == 0) && is_prime?(x))
+        largest_factor = x
       end
-      test+=1
     end
-    out
+    largest_factor
   end
 
-  def improved_prime_factor(n)
+  def improved_largest_prime_factor(n)
     puts "Using the new way"
-    test = 3
-    out = 0
-    while test <= n
-      if ((n % test == 0) && is_prime?(test)) 
-        out = test
-        n = n/test
+    largest_factor = 1
+    (2..n).each do |x|
+      if ((n % x == 0) && is_prime?(x))
+        largest_factor = x
+        n = n / x
       end
-      test+=1
     end
-    out
+    largest_factor
   end
 
 end
