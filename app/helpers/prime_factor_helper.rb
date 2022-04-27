@@ -1,7 +1,3 @@
-require 'scientist'
-require 'scientist/experiment'
-require 'pp'
-
 module PrimeFactorHelper
 
   def largest_prime_factor(number)
