@@ -1,0 +1,2 @@
+class PrimeNumberModel < ApplicationRecord
+end

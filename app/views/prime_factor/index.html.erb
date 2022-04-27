@@ -1,0 +1,19 @@
+<h1>PrimeFactor#index</h1>
+<p>Find me in app/views/prime_factor/index.html.erb</p>
+
+<%= form_for @prime, url: '/prime_factor/search' do |form| %>
+  <div>
+    <%= form.label :number %><br>
+    <%= form.text_field :number %>
+  </div>
+
+  <div>
+    <%= form.label :factor %><br>
+    <%= @prime.factor %><br>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
